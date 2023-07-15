@@ -1,9 +1,7 @@
 import React from "react";
 
 type PropsType = {
-    truck: string
-    truck2?: number
-    truck3?: boolean
+    title:string
     tasks: TaskType[]
 }
 
@@ -17,7 +15,7 @@ export const Todolist =(props:PropsType)=> {
     return(
         <div className="App">
             <div>
-                <h3>{props.truck}</h3>
+                <h3>{props.title}</h3>
                 <div>
                     <input/>
                     <button>+</button>
@@ -25,7 +23,10 @@ export const Todolist =(props:PropsType)=> {
                 <ul>
                     {props.tasks.map((el:TaskType)=>{        
                         return(
-                           <li><input type="checkbox" checked={el.isDone}/> <span>{el.title}</span></li>
+                           <li><input type="checkbox" checked={el.isDone}/>
+                           <span>{el.title}</span>
+                           <button>x</button>
+                           </li>
                         )                        
                     })}
                 </ul>
